@@ -1,5 +1,11 @@
 <script>
 	import '../app.css';
+	import Footer from '$lib/components/Footer.svelte';
 </script>
 
-<slot />
+<div class="flex flex-col min-h-screen">
+	<main class="flex-1">
+		<slot />
+	</main>
+	<Footer />
+</div>
