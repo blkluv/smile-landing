@@ -1,5 +1,4 @@
 <script>
-	//script
 	import Slideshow from '$lib/components/Slideshow.svelte';
 	import Form from '$lib/components/Form.svelte';
 	let Check =
