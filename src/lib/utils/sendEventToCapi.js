@@ -1,7 +1,7 @@
 import { PUBLIC_PIXEL } from '$env/static/public';
 import { ACCESS_TOKEN, TEST_EVENT_CODE } from '$env/static/private';
 
-export const sendEventToCapi = async payload => {
+export const sendEventToCapi = async (payload, platform) => {
     try {
         const body = new FormData()
         body.append('data', JSON.stringify(payload));
@@ -14,6 +14,11 @@ export const sendEventToCapi = async payload => {
         }
 
         const response = await fetch(`https://graph.facebook.com/v13.0/${PUBLIC_PIXEL}/events`, requestOptions)
+
+        const logTxAPI = {
+            response
+        }
+        platform.env.LOGS && await platform.env.LOGS.put(payload.event_name + '_' + payload.event_id, JSON.stringify(logTxAPI))
 
         if (!response.ok) {
             const textError = await response.text()

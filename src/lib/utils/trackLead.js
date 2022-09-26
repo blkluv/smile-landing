@@ -36,7 +36,7 @@ export const trackLead = async (dataForm) => {
 
         if (!response.ok) {
             const textError = await response.text()
-            throw Error(textError);
+            throw Error(textError + ' | ' + response.statusText);
         } else {
             const responseBody = await response.json();
 

@@ -90,13 +90,8 @@ export const POST = async ({ request, url, clientAddress, platform }) => {
             }
         ]
 
-        const response = await sendEventToCapi(payload)
+        const response = await sendEventToCapi(payload, platform)
         //example response: {"events_received":1,"messages":[],"fbtrace_id":"A7G1NdOWo6whyDZUcUYuIWS"}
-
-        const logTxAPI = {
-            response
-        }
-        platform.env.LOGS && await platform.env.LOGS.put('Lead_' + leadEventID, JSON.stringify(logTxAPI))
 
 
         if (response && response.events_received === 1) {
