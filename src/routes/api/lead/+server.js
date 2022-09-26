@@ -11,8 +11,8 @@ export const POST = async ({ request, url, clientAddress }) => {
         const { firstname, lastname, email, phone, leadEventID } = await request.json()
 
         /* 
-        Facebook recommend that you always send _fbc and _fbp browser cookie values in the fbc and fbp event parameters, respectively, when available. 
-        For more information see: https://developers.facebook.com/docs/marketing-api/conversions-api/parameters/fbp-and-fbc/
+            Facebook recommend that you always send _fbc and _fbp browser cookie values in the fbc and fbp event parameters, respectively, when available. 
+            For more information see: https://developers.facebook.com/docs/marketing-api/conversions-api/parameters/fbp-and-fbc/
         */
         const cookies = cookie.parse(request.headers.get('cookie') || '');
         const fbp = cookies._fbp || null
@@ -28,28 +28,28 @@ export const POST = async ({ request, url, clientAddress }) => {
         const userAgent = request.headers.get('User-Agent')
 
         /* 
-        Facebook says that they use contact information for matching purposes only so that for 
-        information that personally identifies individuals, such as names, email addresses, and
-        phone numbers, they only accept hashes. 
-        For more information see: https://developers.facebook.com/docs/marketing-api/conversions-api/parameters/customer-information-parameters/
+            Facebook says that they use contact information for matching purposes only so that for 
+            information that personally identifies individuals, such as names, email addresses, and
+            phone numbers, they only accept hashes. 
+            For more information see: https://developers.facebook.com/docs/marketing-api/conversions-api/parameters/customer-information-parameters/
         */
         const firstnameHash = firstname ? await sha256(firstname) : null
         const lastnameHash = lastname ? await sha256(lastname) : null
         const emailHash = email ? await sha256(email) : null
 
         /* 
-        Before hashing the phone number, you can even check the phone number format programmatically
-        or use a service like ClickSend. 
-        Hint: a lookup table (country/country code) can be helpful (https://countrycode.org). 
-        For this example I am going to pretend that the country is always Venezuela (country code 58).
+            Before hashing the phone number, you can even check the phone number format programmatically
+            or use a service like ClickSend. 
+            Hint: a lookup table (country/country code) can be helpful (https://countrycode.org). 
+            For this example I am going to pretend that the country is always Venezuela (country code 58).
         */
         const country_code = 58
         const phoneHash = phone ? await sha256(country_code + Number(phone)) : null
 
         /* 
-        Facebook says that sending additional customer information parameters may help increase Event Match Quality.
-        We can get some additional parameters for free (CloudFlare specific).
-        For more information see: https://developers.facebook.com/docs/marketing-api/conversions-api/best-practices/#req-rec-params
+            Facebook says that sending additional customer information parameters may help increase Event Match Quality.
+            We can get some additional parameters for free (CloudFlare specific).
+            For more information see: https://developers.facebook.com/docs/marketing-api/conversions-api/best-practices/#req-rec-params
          */
         const userData = getEdgeUserData(request) //This is platform dependent (this is an example using CloudFlare workers)
 
@@ -59,8 +59,8 @@ export const POST = async ({ request, url, clientAddress }) => {
         const zp = userData.postalCode ? await sha256(userData.postalCode) : null
 
         /* 
-        Crafting the Payload
-        For more information see: https://developers.facebook.com/docs/marketing-api/conversions-api/payload-helper/
+            Crafting the Payload
+            For more information see: https://developers.facebook.com/docs/marketing-api/conversions-api/payload-helper/
         */
         const payload = [
             {

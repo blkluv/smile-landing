@@ -7,6 +7,10 @@
 	import Pricing from '$lib/components/Pricing.svelte';
 	import About from '$lib/components/About.svelte';
 
+	import { event_id } from '$lib/store/store';
+	export let data;
+	$event_id = data.eid;
+
 	const seoProps = {
 		title: 'Smile Design | Dr. John Doe',
 		description: 'Get Back Your Confidence With Your Best Smile',
