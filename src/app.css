@@ -1,3 +1,60 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+@layer base {
+    [type='text'],
+    [type='email'],
+    [type='url'],
+    [type='password'],
+    [type='number'],
+    [type='date'],
+    [type='datetime-local'],
+    [type='month'],
+    [type='search'],
+    [type='tel'],
+    [type='time'],
+    [type='week'],
+    [multiple],
+    textarea,
+    select {
+        @apply outline-none rounded-none bg-gray-100 border-0 w-full
+    }
+
+    [type='checkbox'],
+    [type='radio'] {
+        @apply cursor-pointer bg-white text-primary ring-2 focus:ring-primary focus:ring-0 ring-primary
+    }
+
+    .brandGradient{
+        background-image: linear-gradient(180deg, rgba(155, 218, 221, 1) 0%, rgba(255, 255, 255, 0) 74%)
+    }
+
+    .brandGradient_DrCarrillo{
+        background-image: linear-gradient(180deg, rgba(135, 112, 231,1) 0%, rgba(117, 195, 212,0) 74%)
+    }
+    .brandGradient_DrCarrillo2{
+        background-image: linear-gradient(180deg, rgba(152, 163, 199,1) 0%, rgba(117, 195, 212,0) 74%)
+    }
+    .brandGradient_DrCarrilloHorizontal{
+        background-image: linear-gradient(to right, rgba(152, 163, 199,1) 0%, rgba(117, 195, 212,0) 100%)
+    }
+
+    .brandGradientVariant{
+        background-image: linear-gradient(145deg, rgb(207, 161, 202) 0%, rgb(155, 218, 221) 23%, rgb(255, 255, 255) 59%, rgb(253, 221, 155) 100%)
+
+    }
+    .brandGradientVariant_DrCarrillo{
+        background-image: linear-gradient(145deg, rgb(207, 161, 202) 0%, rgb(135, 112, 231) 23%, rgb(240, 250, 250) 59%, rgb(253, 221, 155) 100%)
+
+    }
+
+    
+    .brandButton{
+        @apply py-0 px-6 leading-tight h-12 font-semibold text-lg bg-white border-2 border-black rounded-3xl hover:text-gray-900 hover:bg-p2 hover:shadow-md
+    }
+    .brandButtonOff{
+        @apply py-0 px-6 leading-tight h-12 text-white bg-white border-2 border-p1 rounded-3xl 
+    }
+}
