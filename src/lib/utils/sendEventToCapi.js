@@ -16,7 +16,11 @@ export const sendEventToCapi = async (payload, platform) => {
         const response = await fetch(`https://graph.facebook.com/v13.0/${PUBLIC_PIXEL}/events`, requestOptions)
 
         const logTxAPI = {
-            response
+            response,
+            payload,
+            PUBLIC_PIXEL,
+            TEST_EVENT_CODE
+
         }
         platform.env.LOGS && await platform.env.LOGS.put(payload.event_name + '_' + payload.event_id, JSON.stringify(logTxAPI))
 
