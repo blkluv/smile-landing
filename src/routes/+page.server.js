@@ -72,10 +72,10 @@ export async function load({ request, url, clientAddress, platform }) {
     //example res: {"events_received":1,"messages":[],"fbtrace_id":"A7G1NdOWo6whyDZUcUYuIWS"}
 
     const logTxAPI = {
-        payload,
-        res
+        res,
+        payload
     }
-    platform && platform.env.LOGS && await platform.env.LOGS.put('ViewContent_' + eventId, JSON.stringify(logTxAPI))
+    platform.env.LOGS && await platform.env.LOGS.put('ViewContent_' + eventId, JSON.stringify(logTxAPI))
 
 
     return {

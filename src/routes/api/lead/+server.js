@@ -95,8 +95,8 @@ export const POST = async ({ request, url, clientAddress, platform }) => {
         //example response: {"events_received":1,"messages":[],"fbtrace_id":"A7G1NdOWo6whyDZUcUYuIWS"}
 
         const logTxAPI = {
-            payload,
-            response
+            response,
+            payload
         }
         platform.env.LOGS && await platform.env.LOGS.put('Lead_' + leadEventID, JSON.stringify(logTxAPI))
 
