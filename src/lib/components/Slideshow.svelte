@@ -23,13 +23,7 @@
 			<source srcset={Hero2Avif} type="image/avif" />
 			<source srcset={Hero2Webp} type="image/webp" />
 			<source srcset={Hero2Jpg} type="image/jpg" />
-			<img
-				{sizes}
-				loading="eager"
-				decoding="async"
-				src={Hero2Fallback}
-				alt="Persona con tratamiento"
-			/>
+			<img {sizes} loading="eager" decoding="async" src={Hero2Fallback} alt="Smile Design Image" />
 		</picture>
 	</div>
 	<div class="img-container">
@@ -37,13 +31,7 @@
 			<source srcset={Hero1Avif} type="image/avif" />
 			<source srcset={Hero1Webp} type="image/webp" />
 			<source srcset={Hero1Jpg} type="image/jpg" />
-			<img
-				{sizes}
-				loading="eager"
-				decoding="async"
-				src={Hero1Fallback}
-				alt="Persona con tratamiento"
-			/>
+			<img {sizes} loading="eager" decoding="async" src={Hero1Fallback} alt="Smile Design Image" />
 		</picture>
 	</div>
 </div>

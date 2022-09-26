@@ -75,7 +75,7 @@ export async function load({ request, url, clientAddress, platform }) {
         payload,
         res
     }
-    platform.env.LOGS && await platform.env.LOGS.put('ViewContent_' + eventId, JSON.stringify(logTxAPI))
+    platform && platform.env.LOGS && await platform.env.LOGS.put('ViewContent_' + eventId, JSON.stringify(logTxAPI))
 
 
     return {

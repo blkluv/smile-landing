@@ -17,7 +17,8 @@ export const sendEventToCapi = async payload => {
 
         if (!response.ok) {
             //throw new Error(`Connection failure to Facebook Server.`)
-            throw new Error(response.message)
+            const r = await response.json()
+            throw new Error(JSON.stringify(r))
         } else {
             const capiResponse = await response.json()
 
