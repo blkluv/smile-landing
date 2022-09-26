@@ -1,13 +1,13 @@
 <script>
-	/* import Hero1Fallback from '$lib/assets/hero1-1600x1600.jpg?width=1600';
-	import Hero1Webp from '$lib/assets/hero1-1600x1600.jpg?width=1024;768;640&format=webp&srcset';
-	import Hero1Avif from '$lib/assets/hero1-1600x1600.jpg?width=1024;768;640&format=avif&srcset';
-	import Hero1Jpg from '$lib/assets/hero1-1600x1600.jpg?width=1024;768;640&format=jpg&srcset';
+	import Hero1Fallback from '$lib/assets/hero-frame1.png?width=1600';
+	import Hero1Webp from '$lib/assets/hero-frame1.png?width=1024;768;640&format=webp&srcset';
+	import Hero1Avif from '$lib/assets/hero-frame1.png?width=1024;768;640&format=avif&srcset';
+	import Hero1Jpg from '$lib/assets/hero-frame1.png?width=1024;768;640&format=jpg&srcset';
 
-	import Hero2Fallback from '$lib/assets/hero2-1600x1600.jpg?width=1600';
-	import Hero2Webp from '$lib/assets/hero2-1600x1600.jpg?width=1024;768;640&format=webp&srcset';
-	import Hero2Avif from '$lib/assets/hero2-1600x1600.jpg?width=1024;768;640&format=avif&srcset';
-	import Hero2Jpg from '$lib/assets/hero2-1600x1600.jpg?width=1024;768;640&format=jpg&srcset'; */
+	import Hero2Fallback from '$lib/assets/hero-frame2.png?width=1600';
+	import Hero2Webp from '$lib/assets/hero-frame2.png?width=1024;768;640&format=webp&srcset';
+	import Hero2Avif from '$lib/assets/hero-frame2.png?width=1024;768;640&format=avif&srcset';
+	import Hero2Jpg from '$lib/assets/hero-frame2.png?width=1024;768;640&format=jpg&srcset';
 
 	//To be updated too on CSS sections bellow
 	const widthBase = '80vw';
@@ -18,8 +18,8 @@
 </script>
 
 <div class="slides">
-	<div class="img-container shim">
-		<!-- <picture>
+	<div class="img-container">
+		<picture>
 			<source srcset={Hero2Avif} type="image/avif" />
 			<source srcset={Hero2Webp} type="image/webp" />
 			<source srcset={Hero2Jpg} type="image/jpg" />
@@ -30,10 +30,10 @@
 				src={Hero2Fallback}
 				alt="Persona con tratamiento"
 			/>
-		</picture> -->
+		</picture>
 	</div>
-	<div class="img-container shim">
-		<!-- <picture>
+	<div class="img-container">
+		<picture>
 			<source srcset={Hero1Avif} type="image/avif" />
 			<source srcset={Hero1Webp} type="image/webp" />
 			<source srcset={Hero1Jpg} type="image/jpg" />
@@ -44,7 +44,7 @@
 				src={Hero1Fallback}
 				alt="Persona con tratamiento"
 			/>
-		</picture> -->
+		</picture>
 	</div>
 </div>
 
@@ -110,27 +110,5 @@
 		max-width: 100%;
 		height: auto;
 		object-fit: cover;
-	}
-
-	.shim {
-		display: block;
-		height: auto;
-		width: 100%;
-		aspect-ratio: 16/9;
-		object-fit: cover;
-		object-position: center;
-		-webkit-animation: shimmer 2s linear infinite;
-		animation: shimmer 2s linear infinite;
-		background: linear-gradient(90deg, #eff1f3 4%, #e2e2e2 25%, #eff1f3 36%);
-		background-size: 1000px 100%;
-	}
-
-	@keyframes shimmer {
-		0% {
-			background-position: -1000px 0;
-		}
-		100% {
-			background-position: 1000px 0;
-		}
 	}
 </style>

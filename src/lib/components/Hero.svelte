@@ -23,7 +23,7 @@
 					Smile Design
 				</p>
 				<p class="rounded-[0_6.25rem_6.25rem_0] border-0 bg-gray-900 text-white py-1 px-4 w-fit ">
-					Starting at <span class="text-lg font-extrabold">$116/Mo</span>
+					Starting at <span class="text-lg font-extrabold">28€/Mo</span>
 				</p>
 				<p class="rounded-[0_6.25rem_6.25rem_0] border-0 bg-gray-900 text-white py-2 px-4 w-fit ">
 					Request your FREE APPOINTMENT

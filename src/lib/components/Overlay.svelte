@@ -3,9 +3,9 @@
 	import { isOverlayOpen } from '$lib/store/store';
 	import Form from '$lib/components/Form.svelte';
 
-	import Logo1Avif from '$lib/assets/smylogowhite-3732x3093.png?width=300&format=avif&srcset';
-	import Logo1Webp from '$lib/assets/smylogowhite-3732x3093.png?width=300&format=webp&srcset';
-	import Logo1Png from '$lib/assets/smylogowhite-3732x3093.png?width=192&format=png';
+	import Logo1Avif from '$lib/assets/logo.png?width=300&format=avif&srcset';
+	import Logo1Webp from '$lib/assets/logo.png?width=300&format=webp&srcset';
+	import Logo1Png from '$lib/assets/logo.png?width=192&format=png';
 </script>
 
 <div

@@ -6,9 +6,6 @@
 	import Testimonials from '$lib/components/Testimonials.svelte';
 	import Pricing from '$lib/components/Pricing.svelte';
 	import About from '$lib/components/About.svelte';
-	import CTA from '$lib/components/CTA.svelte';
-	//import Stats from '$lib/components/Stats.svelte';
-	//import SocialProof from '$lib/components/SocialProof.svelte';
 
 	const seoProps = {
 		title: 'Smile Design | Dr. John Doe',
@@ -26,4 +23,3 @@
 <Testimonials />
 <Pricing />
 <About />
-<CTA />

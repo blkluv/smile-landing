@@ -2,17 +2,17 @@
 	import { isOverlayOpen } from '$lib/store/store';
 	import Overlay from '$lib/components/Overlay.svelte';
 
-	import How1Avif from '$lib/assets/howitworks1-263-332.png?width=144;288;432;&format=avif&srcset';
-	import How1Webp from '$lib/assets/howitworks1-263-332.png?width=144;288;432&format=webp&srcset';
-	import How1Png from '$lib/assets/howitworks1-263-332.png?width=432&format=png';
+	import How1Avif from '$lib/assets/howitworks1.png?width=144;288;432;&format=avif&srcset';
+	import How1Webp from '$lib/assets/howitworks1.png?width=144;288;432&format=webp&srcset';
+	import How1Png from '$lib/assets/howitworks1.png?width=432&format=png';
 
-	import How2Avif from '$lib/assets/howitworks2-1620-1620.png?width=176;352;528;&format=avif&srcset';
-	import How2Webp from '$lib/assets/howitworks2-1620-1620.png?width=176;352;528&format=webp&srcset';
-	import How2Png from '$lib/assets/howitworks2-1620-1620.png?width=528&format=png';
+	import How2Avif from '$lib/assets/howitworks2.png?width=176;352;528;&format=avif&srcset';
+	import How2Webp from '$lib/assets/howitworks2.png?width=176;352;528&format=webp&srcset';
+	import How2Png from '$lib/assets/howitworks2.png?width=528&format=png';
 
-	import How3Avif from '$lib/assets/howitworks3-343-259.png?width=144;288;432;&format=avif&srcset';
-	import How3Webp from '$lib/assets/howitworks3-343-259.png?width=144;288;432&format=webp&srcset';
-	import How3Png from '$lib/assets/howitworks3-343-259.png?width=432&format=png';
+	import How3Avif from '$lib/assets/howitworks3.png?width=144;288;432;&format=avif&srcset';
+	import How3Webp from '$lib/assets/howitworks3.png?width=144;288;432&format=webp&srcset';
+	import How3Png from '$lib/assets/howitworks3.png?width=432&format=png';
 </script>
 
 <section class="brandGradient bg-[rgb(249,249,249)]">
@@ -33,7 +33,7 @@
 							loading="lazy"
 							decoding="async"
 							src={How1Png}
-							alt="Persona con tratamiento"
+							alt="Step 1 image"
 							class="object-cover w-36 mr-auto  md:mx-auto"
 						/>
 					</picture>
@@ -65,7 +65,7 @@
 							loading="lazy"
 							decoding="async"
 							src={How2Png}
-							alt="Persona con tratamiento"
+							alt="Step 2 image"
 							class="object-cover w-44 mr-auto"
 						/>
 					</picture>
@@ -97,7 +97,7 @@
 							loading="lazy"
 							decoding="async"
 							src={How3Png}
-							alt="Persona con tratamiento"
+							alt="Step 3 image"
 							class="object-cover w-36 mr-auto  md:mx-auto"
 						/>
 					</picture>

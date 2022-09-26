@@ -30,7 +30,9 @@
     .brandGradient{
         background-image: linear-gradient(180deg, rgba(155, 218, 221, 1) 0%, rgba(255, 255, 255, 0) 74%)
     }
-   
+    .brandGradientVariant{
+        background-image: linear-gradient(145deg, rgb(207, 161, 202) 0%, rgb(155, 218, 221) 23%, rgb(255, 255, 255) 59%, rgb(253, 221, 155) 100%)
+    }
     .brandButton{
         @apply py-0 px-6 leading-tight h-12 font-semibold text-lg bg-white border-2 border-black rounded-3xl hover:text-gray-900 hover:bg-p2 hover:shadow-md
     }
