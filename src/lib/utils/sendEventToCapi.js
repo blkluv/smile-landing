@@ -16,22 +16,13 @@ export const sendEventToCapi = async payload => {
         const response = await fetch(`https://graph.facebook.com/v13.0/${PUBLIC_PIXEL}/events`, requestOptions)
 
         if (!response.ok) {
-            //throw new Error(`Connection failure to Facebook Server.`)
-            const r = await response.json()
-            throw new Error(JSON.stringify(r))
+            const textError = await response.text()
+            throw new Error(textError)
         } else {
             const capiResponse = await response.json()
 
-            const logTx = {
-                capiResponse,
-                PUBLIC_PIXEL,
-                ACCESS_TOKEN,
-                TEST_EVENT_CODE
-            }
-
-            //json response example: 
-            //{"events_received":1,"messages":[],"fbtrace_id":"AlEbQv4iavf_SbArt9iFKA2"}
-            return logTx
+            //response example: {"events_received":1,"messages":[],"fbtrace_id":"AlEbQv4iavf_SbArt9iFKA2"}
+            return capiResponse
         }
 
     } catch (err) {

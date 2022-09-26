@@ -5,7 +5,7 @@ import { sha256 } from '$lib/utils/crypto'
 import { sendEventToCapi } from '$lib/utils/sendEventToCapi'
 
 /** @type {import('./$types').RequestHandler} */
-export const POST = async ({ request, url, clientAddress, platform }) => {
+export const POST = async ({ request, url, clientAddress }) => {
 
     try {
         const { firstname, lastname, email, phone, leadEventID } = await request.json()
@@ -89,22 +89,15 @@ export const POST = async ({ request, url, clientAddress, platform }) => {
                 }
             }
         ]
-        platform.env.LOGS && await platform.env.LOGS.put('PrevLead_' + leadEventID, JSON.stringify(payload))
 
         const response = await sendEventToCapi(payload)
         //example response: {"events_received":1,"messages":[],"fbtrace_id":"A7G1NdOWo6whyDZUcUYuIWS"}
-
-        const logTxAPI = {
-            response,
-            payload
-        }
-        platform.env.LOGS && await platform.env.LOGS.put('Lead_' + leadEventID, JSON.stringify(logTxAPI))
 
         if (response && response.events_received === 1) {
             // 👉️ CAPI ok
             return new Response(JSON.stringify(payload))
         } else {
-            throw new Error(`Failed Lead event sent to FB CAPI.`);
+            throw new Error(JSON.stringify(response));
         }
     } catch (err) {
         return new Response(JSON.stringify(err), {
@@ -120,7 +113,7 @@ const payload_example = [
             "event_time": 1659617113,
             "action_source": "website",
             "event_id": "642f6ff9-044f-42cb-8814-087d2ad4e6ab",
-            "event_source_url": "https://example.com",
+            "event_source_url": "https://smile-landing.gerardocastillo.me/",
             "user_data":
             {
                 "em": ["ef500fc4f3ae928c8faa209cea86ac55e7c1d102f5757dd52b72d77a63d36a89"],
