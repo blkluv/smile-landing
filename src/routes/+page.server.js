@@ -68,7 +68,7 @@ export async function load({ request, url, clientAddress }) {
             }
         }
     ]
-    const res = await sendEventToCapi(payload)
+    await sendEventToCapi(payload)
     //example res: {"events_received":1,"messages":[],"fbtrace_id":"A7G1NdOWo6whyDZUcUYuIWS"}
 
     return {
