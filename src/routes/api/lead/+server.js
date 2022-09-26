@@ -93,8 +93,11 @@ export const POST = async ({ request, url, clientAddress, platform }) => {
         const response = await sendEventToCapi(payload)
         //example response: {"events_received":1,"messages":[],"fbtrace_id":"A7G1NdOWo6whyDZUcUYuIWS"}
 
+        const logTxAPI = {
+            response
+        }
+        platform.env.LOGS && await platform.env.LOGS.put('Lead_' + leadEventID, JSON.stringify(logTxAPI))
 
-        platform.env.LOGS && await platform.env.LOGS.put(leadEventID, JSON.stringify(response))
 
         if (response && response.events_received === 1) {
             // 👉️ CAPI ok
@@ -104,7 +107,8 @@ export const POST = async ({ request, url, clientAddress, platform }) => {
         }
     } catch (err) {
         return new Response(JSON.stringify(err), {
-            status: 500
+            status: 500,
+            statusText: JSON.stringify(err)
         })
     }
 }
