@@ -1,4 +1,4 @@
-import { PUBLIC_PIXEL } from '$env/static/public';
+//import { PUBLIC_PIXEL } from '$env/static/public';
 import { ACCESS_TOKEN, TEST_EVENT_CODE } from '$env/static/private';
 
 export const sendEventToCapi = async payload => {
@@ -13,7 +13,8 @@ export const sendEventToCapi = async payload => {
             body
         }
 
-        const response = await fetch(`https://graph.facebook.com/v13.0/${PUBLIC_PIXEL}/events`, requestOptions)
+        //const response = await fetch(`https://graph.facebook.com/v13.0/${PUBLIC_PIXEL}/events`, requestOptions)
+        const response = await fetch(`https://graph.facebook.com/v13.0/686406995880452/events`, requestOptions)
 
         if (!response.ok) {
             throw new Error(`Connection failure to Facebook Server.`)
@@ -26,7 +27,6 @@ export const sendEventToCapi = async payload => {
         }
 
     } catch (err) {
-        //return new Response("Error CF WORKER: " + err.message, { headers: corsHeaders })
         return {
             error: err.name,
             message: err.message
