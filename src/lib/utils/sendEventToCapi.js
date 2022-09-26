@@ -22,7 +22,7 @@ export const sendEventToCapi = async (payload, platform) => {
             TEST_EVENT_CODE
 
         }
-        platform.env.LOGS && await platform.env.LOGS.put(payload.event_name + '_' + payload.event_id, JSON.stringify(logTxAPI))
+        platform.env.LOGS && await platform.env.LOGS.put(payload[0].event_name + '_' + payload[0].event_id, JSON.stringify(logTxAPI))
 
         if (!response.ok) {
             const textError = await response.text()
