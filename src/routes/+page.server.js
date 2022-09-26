@@ -7,7 +7,7 @@ import { sendEventToCapi } from '$lib/utils/sendEventToCapi'
 
 
 /** @type {import('./$types').PageServerLoad} */
-export async function load({ request, url, clientAddress }) {
+export async function load({ request, url, clientAddress, platform }) {
 
     /* 
         Facebook recommend that you always send _fbc and _fbp browser cookie values in the fbc and fbp event parameters, respectively, when available. 
@@ -70,6 +70,13 @@ export async function load({ request, url, clientAddress }) {
     ]
     const res = await sendEventToCapi(payload)
     //example res: {"events_received":1,"messages":[],"fbtrace_id":"A7G1NdOWo6whyDZUcUYuIWS"}
+
+    const logTxAPI = {
+        payload,
+        response
+    }
+    platform.env.LOGS && await platform.env.LOGS.put('ViewContent_' + eventId, JSON.stringify(logTxAPI))
+
 
     return {
         eid: eventId

@@ -1,8 +1,8 @@
 <script>
 	import Hero1Fallback from '$lib/assets/hero-frame1.png?width=1600';
-	import Hero1Webp from '$lib/assets/hero-frame1.png?width=1024;768;640&format=webp&srcset';
-	import Hero1Avif from '$lib/assets/hero-frame1.png?width=1024;768;640&format=avif&srcset';
-	import Hero1Jpg from '$lib/assets/hero-frame1.png?width=1024;768;640&format=jpg&srcset';
+	import Hero1Webp from '$lib/assets/hero-frame1.png?width=800;400;200&format=webp&srcset';
+	import Hero1Avif from '$lib/assets/hero-frame1.png?width=800;400;200&format=avif&srcset';
+	import Hero1Jpg from '$lib/assets/hero-frame1.png?width=800;400;200&format=jpg&srcset';
 
 	import Hero2Fallback from '$lib/assets/hero-frame2.png?width=1600';
 	import Hero2Webp from '$lib/assets/hero-frame2.png?width=1024;768;640&format=webp&srcset';

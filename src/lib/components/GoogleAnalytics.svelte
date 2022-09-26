@@ -12,7 +12,7 @@
 
 <svelte:head>
 	<!-- Google tag (gtag.js) -->
-	<script async src="https://www.googletagmanager.com/gtag/js?id=G-7G4D5LM10Z"></script>
+	<script defer src="https://www.googletagmanager.com/gtag/js?id=G-7G4D5LM10Z"></script>
 	<script>
 		window.dataLayer = window.dataLayer || [];
 		function gtag() {
