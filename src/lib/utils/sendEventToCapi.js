@@ -16,7 +16,8 @@ export const sendEventToCapi = async payload => {
         const response = await fetch(`https://graph.facebook.com/v13.0/${PUBLIC_PIXEL}/events`, requestOptions)
 
         if (!response.ok) {
-            throw new Error(`Connection failure to Facebook Server.`)
+            //throw new Error(`Connection failure to Facebook Server.`)
+            throw new Error(response.message)
         } else {
             const capiResponse = await response.json()
 
