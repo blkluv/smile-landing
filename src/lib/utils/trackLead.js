@@ -35,13 +35,14 @@ export const trackLead = async (dataForm) => {
         const response = await fetch('/api/lead', requestOptions);
 
         if (!response.ok) {
-            throw Error(JSON.stringify(response));
+            const textError = await response.text()
+            throw Error(textError);
         } else {
             const responseBody = await response.json();
 
             return responseBody
         }
     } catch (err) {
-        console.log('Error (trackLead): ' + err.message);
+        console.log('Error (trackLead): ' + err.message + ' | ' + JSON.stringify(err.message));
     }
 };
