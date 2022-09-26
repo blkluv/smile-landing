@@ -73,7 +73,7 @@ export async function load({ request, url, clientAddress, platform }) {
 
     const logTxAPI = {
         payload,
-        response
+        res
     }
     platform.env.LOGS && await platform.env.LOGS.put('ViewContent_' + eventId, JSON.stringify(logTxAPI))
 
