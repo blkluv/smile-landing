@@ -82,6 +82,43 @@ export async function load({ request, url, clientAddress, platform }) {
         eid: eventId
     }
 }
+const pay = {
+    "payload": [
+        {
+            "event_name": "ViewContent",
+            "event_time": 1664227395,
+            "action_source": "website",
+            "event_id": "4207dcb1-9655-4858-8ef8-c77eec37637d",
+            "event_source_url": "https://smile-landing.gerardocastillo.me/",
+            "user_data":
+            {
+                "client_user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36",
+                "fbp": "fb.1.1664220223394.1660006164",
+                "country": ["4bd2c412ba70847f497a7adb5ccd527724bfd229fc9b24f755c32b270459464b"],
+                "ct": ["dfb7e5a6e391cf27b332a9176bde628391d1303e12ece4afce50baf25743896e"],
+                "st": ["241867938e71ab05babd4ad9b601239ed6583fd52ec114c48e56b0b51f27209c"]
+            },
+            "custom_data":
+            {
+                "content_name": "Veneers",
+                "content_category": "Cosmetic Dentistry"
+            }
+        }
+    ],
+    "res":
+    {
+        "capiResponse":
+        {
+            "events_received": 1,
+            "messages": [],
+            "fbtrace_id": "AExZP87nj7KMP54IPZhQhGT"
+        },
+        "PUBLIC_PIXEL": "686406995880452",
+        "ACCESS_TOKEN": "EAADZCQj4QvEwBAN9ZBjaOgxd5l52s51a1pOyG1yTi9aYl1hdZAqCZBqnJXLB0p8e22P5HorU1Cp4fFTe6EPip3a5xCGLZBWB3eB7mQVxfNJZAgvWmJvWxyE5hPFZBVVODzBS5uDG8t3ZBr4t4mAah5FWeZAgHoYZBZA0wAhSq9bvf2t4OBKxCttiD28",
+        "TEST_EVENT_CODE": ""
+    }
+}
+
 
 /* 
 const payload_example = [
