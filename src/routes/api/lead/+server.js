@@ -1,4 +1,4 @@
-import { json, error } from '@sveltejs/kit';
+import { error } from '@sveltejs/kit';
 import cookie from 'cookie';
 import { getEdgeUserData } from '$lib/utils/cfEdgeProperties'
 import { PRODUCT_NAME, PRODUCT_CATEGORY } from '$lib/store/store'
@@ -8,7 +8,11 @@ import { sendEventToCapi } from '$lib/utils/sendEventToCapi'
 /** @type {import('./$types').RequestHandler} */
 export const POST = async ({ request, url, clientAddress, platform }) => {
     //platform.env.LOGS && await platform.env.LOGS.put('FLAG' + (+new Date()), 'FLAG')
-    return json('NICE')
+    const outTest = {
+        ok: 1
+    }
+    return new Response(JSON.stringify(outTest))
+
     try {
         const { firstname, lastname, email, phone, leadEventID } = await request.json()
 
