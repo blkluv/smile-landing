@@ -36,13 +36,13 @@ export const trackLead = async (dataForm) => {
 
         if (!response.ok) {
             const textError = await response.text()
-            throw Error(textError + ' | ' + response.statusText);
+            throw Error(textError + ' 1 ' + response.statusText + '|');
         } else {
             const responseBody = await response.json();
 
             return responseBody
         }
     } catch (err) {
-        console.log('Error (trackLead): ' + err.message + ' | ' + JSON.stringify(err.message));
+        console.log('Error (trackLead): ' + err.message + ' 2 ' + JSON.stringify(err.message) + '|');
     }
 };

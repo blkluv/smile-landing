@@ -68,11 +68,12 @@ export async function load({ request, url, clientAddress, platform }) {
             }
         }
     ]
-    await sendEventToCapi(payload, platform)
+    const r = await sendEventToCapi(payload, platform)
     //example res: {"events_received":1,"messages":[],"fbtrace_id":"A7G1NdOWo6whyDZUcUYuIWS"}
 
     return {
-        eid: eventId
+        eid: eventId,
+        capi: r
     }
 }
 

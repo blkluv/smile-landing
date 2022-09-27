@@ -11,6 +11,9 @@
 	export let data;
 	$event_id = data.eid;
 
+	console.log('CAPI: ' + data.capi);
+	console.log('CAPI (Stringify): ' + JSON.stringify(data.capi));
+
 	const seoProps = {
 		title: 'Smile Design | Dr. John Doe',
 		description: 'Get Back Your Confidence With Your Best Smile',
