@@ -7,7 +7,7 @@ import { sendEventToCapi } from '$lib/utils/sendEventToCapi'
 
 
 /** @type {import('./$types').PageServerLoad} */
-export async function load({ request, url, getClientAddress }) {
+export async function load({ request, url }) {
 
     /* 
         Facebook recommend that you always send _fbc and _fbp browser cookie values in the fbc and fbp event parameters, respectively, when available. 
@@ -31,6 +31,7 @@ export async function load({ request, url, getClientAddress }) {
     const eventId = uuid() ////This will be our 'event_id' for this event.
 
     const current_timestamp = Math.floor(new Date() / 1000);
+    const cfConnectingIp = request.headers.get('CF-Connecting-IP')
     const userAgent = request.headers.get('User-Agent')
 
     /* 
@@ -53,7 +54,7 @@ export async function load({ request, url, getClientAddress }) {
             event_id: eventId,
             "event_source_url": url.href,
             "user_data": {
-                "client_ip_address": getClientAddress(),
+                "client_ip_address": cfConnectingIp,
                 "client_user_agent": userAgent,
                 ...(fbc && { fbc }),
                 ...(fbp && { fbp }),
