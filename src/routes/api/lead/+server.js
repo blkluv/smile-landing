@@ -7,11 +7,11 @@ import { sendEventToCapi } from '$lib/utils/sendEventToCapi' */
 
 /** @type {import('./$types').RequestHandler} */
 
-export const POST = async ({ request, url, clientAddress }) => {
+export const POST = async ({ request, url, getClientAddress }) => {
     const payload = await request.json()
     payload.ok = 1
     payload.url = url
-    payload.clientAddress = clientAddress
+    payload.clientAddress = getClientAddress
 
     return new Response(JSON.stringify(payload))
 
