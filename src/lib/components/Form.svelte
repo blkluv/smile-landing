@@ -26,8 +26,7 @@
 			acceptTerms: yup.bool().oneOf([true], 'Consent to privacy policy and terms required')
 		}),
 		onSubmit: async (values) => {
-			//const crmResponse = await saveLeadCRM(values);
-			const crmResponse = { status: 200 };
+			const crmResponse = await saveLeadCRM(values);
 
 			if (crmResponse.status === 200) {
 				await trackLead(values);

@@ -1,5 +1,4 @@
 import { error } from '@sveltejs/kit';
-//import cookie from 'cookie';
 import { getEdgeUserData } from '$lib/utils/cfEdgeProperties'
 import { PRODUCT_NAME, PRODUCT_CATEGORY } from '$lib/store/store'
 import { sha256 } from '$lib/utils/crypto'
@@ -15,11 +14,6 @@ export const POST = async ({ request, url, getClientAddress, cookies }) => {
             Facebook recommend that you always send _fbc and _fbp browser cookie values in the fbc and fbp event parameters, respectively, when available. 
             For more information see: https://developers.facebook.com/docs/marketing-api/conversions-api/parameters/fbp-and-fbc/
         */
-        /* const cookies = cookie.parse(request.headers.get('cookie') || '');
-        const fbp = cookies._fbp || null
-        let fbc = cookies._fbc || null
-        const fbclid = url.searchParams.get('fbclid') || null
-         */
         const fbp = cookies.get('_fbp') || null
         let fbc = cookies.get('_fbc') || null
         const fbclid = url.searchParams.get('fbclid') || null
@@ -101,17 +95,12 @@ export const POST = async ({ request, url, getClientAddress, cookies }) => {
 
         if (response && response.events_received === 1) {
             // 👉️ CAPI ok
-            return new Response(JSON.stringify(payload))
+            return new Response(JSON.stringify({ payload, response }))
         } else {
             throw new Error(JSON.stringify(response));
         }
     } catch (err) {
-        return error(400, 'Error>> ' + JSON.stringify(err))
-        //return new Response(JSON.stringify(err))
-        /* return new Response(JSON.stringify(err), {
-            status: 500,
-            statusText: JSON.stringify(err)
-        }) */
+        return error(400, 'Error: ' + JSON.stringify(err))
     }
 }
 

@@ -1,4 +1,3 @@
-import cookie from 'cookie';
 import { PRODUCT_NAME, PRODUCT_CATEGORY } from '$lib/store/store'
 import { v4 as uuid } from '@lukeed/uuid';
 import { getEdgeUserData } from '$lib/utils/cfEdgeProperties'
@@ -7,7 +6,7 @@ import { sendEventToCapi } from '$lib/utils/sendEventToCapi'
 
 
 /** @type {import('./$types').PageServerLoad} */
-export async function load({ request, url, getClientAddress, cookies, platform }) {
+export async function load({ request, url, getClientAddress, cookies }) {
 
     /* 
         Facebook recommend that you always send _fbc and _fbp browser cookie values in the fbc and fbp event parameters, respectively, when available. 
@@ -69,9 +68,6 @@ export async function load({ request, url, getClientAddress, cookies, platform }
         }
     ]
     await sendEventToCapi(payload)
-
-    platform.env.LOGS && await platform.env.LOGS.put('ViewContent' + (+new Date()), JSON.stringify(payload))
-
     //example res: {"events_received":1,"messages":[],"fbtrace_id":"A7G1NdOWo6whyDZUcUYuIWS"}
 
     return {
