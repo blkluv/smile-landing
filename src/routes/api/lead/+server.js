@@ -1,3 +1,4 @@
+import { error } from '@sveltejs/kit';
 import cookie from 'cookie';
 import { getEdgeUserData } from '$lib/utils/cfEdgeProperties'
 import { PRODUCT_NAME, PRODUCT_CATEGORY } from '$lib/store/store'
@@ -102,7 +103,8 @@ export const POST = async ({ request, url, clientAddress, platform }) => {
             throw new Error(JSON.stringify(response));
         }
     } catch (err) {
-        return new Response(JSON.stringify(err))
+        return error(400, 'Error>> ' + JSON.stringify(err))
+        //return new Response(JSON.stringify(err))
         /* return new Response(JSON.stringify(err), {
             status: 500,
             statusText: JSON.stringify(err)
