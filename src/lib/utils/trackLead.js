@@ -38,8 +38,6 @@ export const trackLead = async (dataForm) => {
             throw Error(JSON.stringify(response));
         } else {
             const responseBody = await response.json();
-            console.log('API LEAD RESPONSE: ' + JSON.stringify(responseBody))
-
             return responseBody
         }
     } catch (err) {
