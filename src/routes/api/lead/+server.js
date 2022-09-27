@@ -7,7 +7,7 @@ import { sendEventToCapi } from '$lib/utils/sendEventToCapi'
 
 /** @type {import('./$types').RequestHandler} */
 export const POST = async ({ request, url, clientAddress, platform }) => {
-    platform.env.LOGS && await platform.env.LOGS.put('FLAG' + (+new Date()), 'FLAG')
+    //platform.env.LOGS && await platform.env.LOGS.put('FLAG' + (+new Date()), 'FLAG')
     return json('NICE')
     try {
         const { firstname, lastname, email, phone, leadEventID } = await request.json()
