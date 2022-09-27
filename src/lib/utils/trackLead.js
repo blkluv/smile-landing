@@ -35,10 +35,7 @@ export const trackLead = async (dataForm) => {
         const response = await fetch('/api/lead', requestOptions);
 
         if (!response.ok) {
-            //const textError = await response.text()
-            //throw Error(`Connection failure to the /api/lead endpoint.`);
             throw Error(JSON.stringify(response));
-            //throw Error(textError + ' 1 ' + response.statusText + '|');
         } else {
             const responseBody = await response.json();
             console.log('API LEAD RESPONSE: ' + JSON.stringify(responseBody))
@@ -46,6 +43,6 @@ export const trackLead = async (dataForm) => {
             return responseBody
         }
     } catch (err) {
-        console.log('Error (trackLead): ' + err.message + ' | err: ' + JSON.stringify(err));
+        console.log('Error (trackLead): ' + err.message);
     }
 };
