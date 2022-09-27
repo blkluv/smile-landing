@@ -7,15 +7,15 @@ import { sendEventToCapi } from '$lib/utils/sendEventToCapi'
 
 
 /** @type {import('./$types').PageServerLoad} */
-export async function load({ request, url, platform, getClientAddress }) {
+export async function load({ request, url, getClientAddress, cookies, platform }) {
 
     /* 
         Facebook recommend that you always send _fbc and _fbp browser cookie values in the fbc and fbp event parameters, respectively, when available. 
         For more information see: https://developers.facebook.com/docs/marketing-api/conversions-api/parameters/fbp-and-fbc/
      */
-    const cookies = cookie.parse(request.headers.get('cookie') || '');
-    const fbp = cookies._fbp || null
-    let fbc = cookies._fbc || null
+
+    const fbp = cookies.get('_fbp') || null
+    let fbc = cookies.get('_fbc') || null
     const fbclid = url.searchParams.get('fbclid') || null
 
     if (!fbc && fbclid) {
@@ -31,7 +31,6 @@ export async function load({ request, url, platform, getClientAddress }) {
     const eventId = uuid() ////This will be our 'event_id' for this event.
 
     const current_timestamp = Math.floor(new Date() / 1000);
-    const cfConnectingIp = request.headers.get('CF-Connecting-IP')
     const userAgent = request.headers.get('User-Agent')
 
     /* 
@@ -69,23 +68,14 @@ export async function load({ request, url, platform, getClientAddress }) {
             }
         }
     ]
-    const r = await sendEventToCapi(payload)
+    await sendEventToCapi(payload)
 
-    const logs = {
-        clientAddress: getClientAddress(),
-        cfConnectingIp,
-        capi: r,
-        payload
-    }
-
-    platform.env.LOGS && await platform.env.LOGS.put('ViewContent_' + eventId, JSON.stringify(logs))
-
+    platform.env.LOGS && await platform.env.LOGS.put('ViewContent' + (+new Date()), JSON.stringify(payload))
 
     //example res: {"events_received":1,"messages":[],"fbtrace_id":"A7G1NdOWo6whyDZUcUYuIWS"}
 
     return {
-        eid: eventId,
-        capi: r
+        eid: eventId
     }
 }
 
@@ -99,6 +89,7 @@ const payload_example = [
         "event_source_url": "https://smile-landing.gerardocastillo.me/",
         "user_data":
         {
+            "client_ip_address": "200.119.83.46",
             "client_user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36",
             "fbp": "fb.1.1664220223394.1660006164",
             "country": ["4bd2c412ba70847f497a7adb5ccd527724bfd229fc9b24f755c32b270459464b"],
