@@ -35,14 +35,15 @@ export const trackLead = async (dataForm) => {
         const response = await fetch('/api/lead', requestOptions);
 
         if (!response.ok) {
-            const textError = await response.text()
-            throw Error(textError + ' 1 ' + response.statusText + '|');
+            //const textError = await response.text()
+            throw Error(`Connection failure to the /api/lead endpoint.`);
+            //throw Error(textError + ' 1 ' + response.statusText + '|');
         } else {
             const responseBody = await response.json();
 
             return responseBody
         }
     } catch (err) {
-        console.log('Error (trackLead): ' + err.message + ' 2 ' + JSON.stringify(err.message) + '|');
+        console.log('Error (trackLead): ' + err.message + ' | err: ' + JSON.stringify(err));
     }
 };

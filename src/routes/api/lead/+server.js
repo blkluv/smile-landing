@@ -89,6 +89,7 @@ export const POST = async ({ request, url, clientAddress, platform }) => {
                 }
             }
         ]
+        platform.env.LOGS && await platform.env.LOGS.put('ApiLeadBefore_' + leadEventID, JSON.stringify(payload))
 
         const response = await sendEventToCapi(payload, platform)
         //example response: {"events_received":1,"messages":[],"fbtrace_id":"A7G1NdOWo6whyDZUcUYuIWS"}
