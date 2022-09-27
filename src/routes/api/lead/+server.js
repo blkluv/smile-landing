@@ -11,7 +11,7 @@ export const POST = async ({ request, url, getClientAddress }) => {
     const payload = await request.json()
     payload.ok = 1
     payload.url = url
-    payload.clientAddress = getClientAddress
+    payload.clientAddress = getClientAddress()
 
     return new Response(JSON.stringify(payload))
 
