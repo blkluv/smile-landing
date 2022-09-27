@@ -110,6 +110,7 @@
 				width="100%"
 				height="100%"
 				style="border:0;"
+				title="Dental office location on the map"
 				class="mx-auto"
 				allowfullscreen=""
 				loading="lazy"
