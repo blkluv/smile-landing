@@ -6,12 +6,10 @@ import { sha256 } from '$lib/utils/crypto'
 import { sendEventToCapi } from '$lib/utils/sendEventToCapi'
 
 /** @type {import('./$types').RequestHandler} */
-export const POST = async ({ request, url, clientAddress, platform }) => {
+export const POST = async ({ request, url, clientAddress }) => {
     //platform.env.LOGS && await platform.env.LOGS.put('FLAG' + (+new Date()), 'FLAG')
-    const outTest = {
-        ok: 1
-    }
-    return new Response(JSON.stringify(outTest))
+
+    return new Response(String('OK TEST'))
 
     try {
         const { firstname, lastname, email, phone, leadEventID } = await request.json()
@@ -95,7 +93,7 @@ export const POST = async ({ request, url, clientAddress, platform }) => {
                 }
             }
         ]
-        platform.env.LOGS && await platform.env.LOGS.put('ApiLeadBefore_' + leadEventID, JSON.stringify(payload))
+        //platform.env.LOGS && await platform.env.LOGS.put('ApiLeadBefore_' + leadEventID, JSON.stringify(payload))
 
         const response = await sendEventToCapi(payload, platform)
         //example response: {"events_received":1,"messages":[],"fbtrace_id":"A7G1NdOWo6whyDZUcUYuIWS"}
