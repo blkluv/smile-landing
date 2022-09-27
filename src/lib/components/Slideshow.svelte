@@ -5,9 +5,9 @@
 	import Hero1Jpg from '$lib/assets/hero-frame1.png?width=800;400;200&format=jpg&srcset';
 
 	import Hero2Fallback from '$lib/assets/hero-frame2.png?width=1600';
-	import Hero2Webp from '$lib/assets/hero-frame2.png?width=1024;768;640&format=webp&srcset';
-	import Hero2Avif from '$lib/assets/hero-frame2.png?width=1024;768;640&format=avif&srcset';
-	import Hero2Jpg from '$lib/assets/hero-frame2.png?width=1024;768;640&format=jpg&srcset';
+	import Hero2Webp from '$lib/assets/hero-frame2.png?width=800;400;200&format=webp&srcset';
+	import Hero2Avif from '$lib/assets/hero-frame2.png?width=800;400;200&format=avif&srcset';
+	import Hero2Jpg from '$lib/assets/hero-frame2.png?width=800;400;200&format=jpg&srcset';
 
 	//To be updated too on CSS sections bellow
 	const widthBase = '80vw';
