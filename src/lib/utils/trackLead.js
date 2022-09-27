@@ -37,7 +37,7 @@ export const trackLead = async (dataForm) => {
         if (!response.ok) {
             //const textError = await response.text()
             //throw Error(`Connection failure to the /api/lead endpoint.`);
-            throw Error(response);
+            throw Error(JSON.stringify(response));
             //throw Error(textError + ' 1 ' + response.statusText + '|');
         } else {
             const responseBody = await response.json();
