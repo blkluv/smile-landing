@@ -1,11 +1,10 @@
-<script>
+<script lang="ts">
 	import { page } from '$app/stores';
 
-	export let title;
-	export let description;
-	export let language = 'en-us';
-	export let keywords = '';
-	export let type = 'website';
+	export let title: string;
+	export let description: string;
+	export let keywords: string;
+	export let type: string = 'website';
 
 	const url = $page.url.toString();
 </script>
@@ -18,8 +17,6 @@
 		name="robots"
 		content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1"
 	/>
-	<html lang={language} />
-
 	<!-- https://ogp.me -->
 	<meta property="og:description" content={description} />
 	<meta property="og:title" content={title} />

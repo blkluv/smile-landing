@@ -2,17 +2,17 @@
 	import { isOverlayOpen } from '$lib/store/store';
 	import Overlay from '$lib/components/Overlay.svelte';
 
-	import How1Avif from '$lib/assets/howitworks1.png?width=144;288;432;&format=avif&srcset';
-	import How1Webp from '$lib/assets/howitworks1.png?width=144;288;432&format=webp&srcset';
-	import How1Png from '$lib/assets/howitworks1.png?width=432&format=png';
+	import How1Avif from '$lib/images/howitworks1.png?width=144;288;432;&format=avif&srcset';
+	import How1Webp from '$lib/images/howitworks1.png?width=144;288;432&format=webp&srcset';
+	import How1Png from '$lib/images/howitworks1.png?width=432&format=png';
 
-	import How2Avif from '$lib/assets/howitworks2.png?width=176;352;528;&format=avif&srcset';
-	import How2Webp from '$lib/assets/howitworks2.png?width=176;352;528&format=webp&srcset';
-	import How2Png from '$lib/assets/howitworks2.png?width=528&format=png';
+	import How2Avif from '$lib/images/howitworks2.png?width=176;352;528;&format=avif&srcset';
+	import How2Webp from '$lib/images/howitworks2.png?width=176;352;528&format=webp&srcset';
+	import How2Png from '$lib/images/howitworks2.png?width=528&format=png';
 
-	import How3Avif from '$lib/assets/howitworks3.png?width=144;288;432;&format=avif&srcset';
-	import How3Webp from '$lib/assets/howitworks3.png?width=144;288;432&format=webp&srcset';
-	import How3Png from '$lib/assets/howitworks3.png?width=432&format=png';
+	import How3Avif from '$lib/images/howitworks3.png?width=144;288;432;&format=avif&srcset';
+	import How3Webp from '$lib/images/howitworks3.png?width=144;288;432&format=webp&srcset';
+	import How3Png from '$lib/images/howitworks3.png?width=432&format=png';
 </script>
 
 <section class="brandGradient bg-[rgb(249,249,249)]">
@@ -33,14 +33,14 @@
 							loading="lazy"
 							decoding="async"
 							src={How1Png}
-							alt="Step 1 image"
-							class="object-cover w-36 mr-auto  md:mx-auto"
+							alt="Step 1"
+							class="object-cover w-36 ml-8 mr-auto md:ml-0 md:relative md:top-6"
 						/>
 					</picture>
 				</div>
 				<div class="flex flex-col self-end min-w-[16rem]">
 					<p
-						class="relative text-3xl font-bold
+						class="relative left-5 md:left-0 text-3xl font-bold
 							 before:content-['1'] before:block before:absolute before:w-12 before:h-12 before:-left-16 before:text-white before:text-center before:bg-primary before:rounded-full before:pt-2 before:text-3xl before:z-10
 							 md:after:block md:after:absolute md:after:top-8 md:after:-left-10 md:after:border-[1px] md:after:border-primary md:after:h-56 md:after:border-opacity-60 
 							 max-w-[15rem]
@@ -65,15 +65,15 @@
 							loading="lazy"
 							decoding="async"
 							src={How2Png}
-							alt="Step 2 image"
-							class="object-cover w-44 mr-auto"
+							alt="Step 2"
+							class="object-cover w-44 ml-6 mr-auto"
 						/>
 					</picture>
 				</div>
 				<div class="flex flex-col self-end min-w-[16rem]">
 					<p
-						class="relative text-3xl font-bold
-						 		before:content-['2'] before:block before:absolute before:w-12 before:h-12  before:right-[17rem] md:before:-right-20 before:text-white before:text-center before:bg-primary before:rounded-full before:pt-2 before:text-3xl before:z-10
+						class="relative left-4 md:left-0 text-3xl font-bold
+						 		before:content-['2'] before:block before:absolute before:w-12 before:h-12  before:right-[15.5rem] md:before:-right-20 before:text-white before:text-center before:bg-primary before:rounded-full before:pt-2 before:text-3xl before:z-10
 							 	md:after:block md:after:absolute md:after:top-8 md:after:-right-[3.6rem] md:after:border-[1px] md:after:border-primary md:after:h-48 md:after:border-opacity-60 
 								max-w-[15rem]
 								"
@@ -97,22 +97,23 @@
 							loading="lazy"
 							decoding="async"
 							src={How3Png}
-							alt="Step 3 image"
-							class="object-cover w-36 mr-auto  md:mx-auto"
+							alt="Step 3"
+							class="object-cover w-36 mr-auto ml-14 md:mx-auto"
 						/>
 					</picture>
 				</div>
 				<div class="flex flex-col self-end min-w-[16rem]">
 					<p
-						class="relative text-3xl font-bold
-							 before:content-['3'] before:block before:absolute before:w-12 before:h-12 before:-left-[2.5rem] before:text-white before:text-center before:bg-primary before:rounded-full before:pt-2 before:text-3xl before:z-10
-							 max-w-[18rem]
-							 pl-5"
+						class="relative w-full mx-auto pr-8 sm:pr-0 pl-10 md:pl-10 text-3xl font-bold
+							 before:content-['3'] before:block before:absolute before:w-12 before:h-12 before:-left-[1.5rem] md:before:-left-[1.8rem] before:text-white before:text-center before:bg-primary before:rounded-full before:pt-2 before:text-3xl before:z-10
+							 max-w-[18rem]"
 					>
 						SMILE MAKEOVER DAY
 					</p>
 					<ul class="list-disc whitespace-nowrap">
-						<li class="ml-6">You’ll have a custom-fit <br /> smile with permanent veneers!</li>
+						<li class="ml-6 sm:ml-10 md:ml-20">
+							You’ll have a custom-fit <br /> smile with permanent veneers!
+						</li>
 					</ul>
 				</div>
 			</div>

@@ -2,28 +2,28 @@
 	import { isOverlayOpen } from '$lib/store/store';
 	import Overlay from '$lib/components/Overlay.svelte';
 
-	import DoctorFallback from '$lib/assets/dr-john-doe.png?width=375&format=jpg&srcset';
-	import DoctorWebp from '$lib/assets/dr-john-doe.png?width=375&format=webp&srcset';
-	import DoctorAvif from '$lib/assets/dr-john-doe.png?width=375&format=avif&srcset';
+	import DoctorFallback from '$lib/images/dr-john-doe.png?width=375&format=jpg&srcset';
+	import DoctorWebp from '$lib/images/dr-john-doe.png?width=375&format=webp&srcset';
+	import DoctorAvif from '$lib/images/dr-john-doe.png?width=375&format=avif&srcset';
 
-	import Facility1Fallback from '$lib/assets/facilities1.jpg?width=1024;768;640&format=jpg&srcset';
-	import Facility1Webp from '$lib/assets/facilities1.jpg?width=1024;768;640&format=webp&srcset';
-	import Facility1Avif from '$lib/assets/facilities1.jpg?width=1024;768;640&format=avif&srcset';
+	import Facility1Fallback from '$lib/images/facilities1.jpg?width=1024;768;640&format=jpg&srcset';
+	import Facility1Webp from '$lib/images/facilities1.jpg?width=1024;768;640&format=webp&srcset';
+	import Facility1Avif from '$lib/images/facilities1.jpg?width=1024;768;640&format=avif&srcset';
 
-	import Facility2Fallback from '$lib/assets/facilities2.jpg?width=1024;768;640&format=jpg&srcset';
-	import Facility2Webp from '$lib/assets/facilities2.jpg?width=1024;768;640&format=webp&srcset';
-	import Facility2Avif from '$lib/assets/facilities2.jpg?width=1024;768;640&format=avif&srcset';
+	import Facility2Fallback from '$lib/images/facilities2.jpg?width=1024;768;640&format=jpg&srcset';
+	import Facility2Webp from '$lib/images/facilities2.jpg?width=1024;768;640&format=webp&srcset';
+	import Facility2Avif from '$lib/images/facilities2.jpg?width=1024;768;640&format=avif&srcset';
 
-	import Facility3Fallback from '$lib/assets/facilities3.jpg?width=1024;768;640&format=jpg&srcset';
-	import Facility3Webp from '$lib/assets/facilities3.jpg?width=1024;768;640&format=webp&srcset';
-	import Facility3Avif from '$lib/assets/facilities3.jpg?width=1024;768;640&format=avif&srcset';
+	import Facility3Fallback from '$lib/images/facilities3.jpg?width=1024;768;640&format=jpg&srcset';
+	import Facility3Webp from '$lib/images/facilities3.jpg?width=1024;768;640&format=webp&srcset';
+	import Facility3Avif from '$lib/images/facilities3.jpg?width=1024;768;640&format=avif&srcset';
 
 	let Check =
 		"<svg viewBox='0 0 14 14' focusable='false' class='w-4 h-4 text-current mr-2' role='presentation'> <g fill='currentColor'><polygon points='5.5 11.9993304 14 3.49933039 12.5 2 5.5 8.99933039 1.5 4.9968652 0 6.49933039' /></g></svg>";
 </script>
 
 <section class="bg-gray-100">
-	<div class=" flex flex-col py-20 space-y-8 md:space-y-12">
+	<div class="px-5 flex flex-col py-20 space-y-8 md:space-y-12">
 		<div
 			class="flex flex-col md:flex-row  space-y-8 md:space-y-0 max-w-sm md:max-w-2xl lg:md:max-w-5xl mx-auto space-x-0 md:space-x-8"
 		>
@@ -112,7 +112,6 @@
 				style="border:0;"
 				title="Dental office location on the map"
 				class="mx-auto"
-				allowfullscreen=""
 				loading="lazy"
 				referrerpolicy="no-referrer-when-downgrade"
 			/>

@@ -6,7 +6,7 @@
 		"<svg viewBox='0 0 14 14' focusable='false' class='w-4 h-4 text-current mr-2' role='presentation'> <g fill='currentColor'><polygon points='5.5 11.9993304 14 3.49933039 12.5 2 5.5 8.99933039 1.5 4.9968652 0 6.49933039' /></g></svg>";
 </script>
 
-<section>
+<section class="px-5">
 	<div class="py-20 space-y-8 md:space-y-12">
 		<div class="text-center space-y-2 max-w-2xl mx-auto">
 			<p class="text-base font-bold text-secondary">PERFECT SMILE</p>
@@ -23,7 +23,7 @@
 			class="md:grid md:grid-cols-2 md:gap-12 space-y-8 md:space-y-0 max-w-sm md:max-w-xl lg:md:max-w-2xl mx-auto"
 		>
 			<div>
-				<div class="ml-8 md:ml-0">
+				<div class="md:ml-0">
 					<div class="mt-1 inline-block">
 						{@html Check}
 					</div>
@@ -34,7 +34,7 @@
 				</div>
 			</div>
 			<div>
-				<div class="ml-8 md:ml-0">
+				<div class="md:ml-0">
 					<div class="mt-1 inline-block">
 						{@html Check}
 					</div>
@@ -46,7 +46,7 @@
 				</div>
 			</div>
 			<div>
-				<div class="ml-8 md:ml-0">
+				<div class="md:ml-0">
 					<div class="mt-1 inline-block">
 						{@html Check}
 					</div>
@@ -58,7 +58,7 @@
 				</div>
 			</div>
 			<div>
-				<div class="ml-8 md:ml-0">
+				<div class="md:ml-0">
 					<div class="mt-1 inline-block">
 						{@html Check}
 					</div>

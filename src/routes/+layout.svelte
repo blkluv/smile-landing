@@ -3,8 +3,8 @@
 	import { event_id, PRODUCT_NAME } from '$lib/store/store';
 
 	import '../app.css';
-	import Footer from '$lib/components/Footer.svelte';
-	import GoogleAnalytics from '$lib/components/GoogleAnalytics.svelte';
+	import Footer from '$components/Footer.svelte';
+	import GoogleAnalytics from '$components/GoogleAnalytics.svelte';
 
 	const trackFacebookEvent = (eid) => {
 		fbq && fbq('track', 'ViewContent', { content_name: PRODUCT_NAME }, { eventID: eid });

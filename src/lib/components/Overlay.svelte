@@ -3,22 +3,26 @@
 	import { isOverlayOpen } from '$lib/store/store';
 	import Form from '$lib/components/Form.svelte';
 
-	import Logo1Avif from '$lib/assets/logo.png?width=300&format=avif&srcset';
-	import Logo1Webp from '$lib/assets/logo.png?width=300&format=webp&srcset';
-	import Logo1Png from '$lib/assets/logo.png?width=192&format=png';
+	import Logo1Avif from '$lib/images/logo.png?width=300&format=avif&srcset';
+	import Logo1Webp from '$lib/images/logo.png?width=300&format=webp&srcset';
+	import Logo1Png from '$lib/images/logo.png?width=192&format=png';
 </script>
 
-<div
-	class="w-screen h-screen fixed top-0 left-0 flex justify-center items-center bg-gray-800 bg-opacity-90 z-10"
+<!-- Buttons used in the clickable area for this reason 👉 https://github.com/sveltejs/svelte/issues/8001 -->
+<button
+	type="button"
 	on:click={() => isOverlayOpen.set(false)}
+	class="w-screen h-screen fixed top-0 left-0 flex justify-center items-center bg-gray-800 bg-opacity-90 z-10"
 	transition:fade
 >
-	<section
+	<button
+		type="button"
 		on:click|stopPropagation
 		class="max-w-lg px-16  py-10 bg-white  rounded-md relative opacity-100"
 	>
 		<div class="max-w-xs py-5">
 			<button
+				type="button"
 				aria-label="Close"
 				class="absolute top-2 right-3 text-4xl text-gray-300 hover:-translate-y-0.5 transition-transform"
 				on:click={() => isOverlayOpen.set(false)}
@@ -44,5 +48,5 @@
 				<Form />
 			</div>
 		</div>
-	</section>
-</div>
+	</button>
+</button>

@@ -1,78 +1,75 @@
-import { PRODUCT_NAME, PRODUCT_CATEGORY } from '$lib/store/store'
+import { PRODUCT_NAME, PRODUCT_CATEGORY } from '$lib/store/store';
 import { v4 as uuid } from '@lukeed/uuid';
-import { getEdgeUserData } from '$lib/utils/cfEdgeProperties'
-import { sha256 } from '$lib/utils/crypto'
-import { sendEventToCapi } from '$lib/utils/sendEventToCapi'
-
+import { getEdgeUserData } from '$lib/utils/cfEdgeProperties';
+import { sha256 } from '$lib/utils/crypto';
+import { sendEventToCapi } from '$lib/utils/sendEventToCapi';
 
 /** @type {import('./$types').PageServerLoad} */
 export async function load({ request, url, getClientAddress, cookies }) {
-
-    /* 
+	/* 
         Facebook recommend that you always send _fbc and _fbp browser cookie values in the fbc and fbp event parameters, respectively, when available. 
         For more information see: https://developers.facebook.com/docs/marketing-api/conversions-api/parameters/fbp-and-fbc/
      */
 
-    const fbp = cookies.get('_fbp') || null
-    let fbc = cookies.get('_fbc') || null
-    const fbclid = url.searchParams.get('fbclid') || null
+	const fbp = cookies.get('_fbp') || null;
+	let fbc = cookies.get('_fbc') || null;
+	const fbclid = url.searchParams.get('fbclid') || null;
 
-    if (!fbc && fbclid) {
-        //Example: fb.1.1642304960291.IwAR0TWG8gs67UHw1jXZm0pWc3BInu-0D28jmHsuZxj3GLrxthCPetfenjOVQ
-        fbc = 'fb.1.' + (+new Date()) + '.' + fbclid
-    }
+	if (!fbc && fbclid) {
+		//Example: fb.1.1642304960291.IwAR0TWG8gs67UHw1jXZm0pWc3BInu-0D28jmHsuZxj3GLrxthCPetfenjOVQ
+		fbc = 'fb.1.' + +new Date() + '.' + fbclid;
+	}
 
-    /* 
+	/* 
         Facebook says that deduplication is necessary when sharing the same events from both the browser and the server.
         So we need to ensure that both events use the identical event_name and event_id.
         For more information see: https://www.facebook.com/business/help/823677331451951?id=1205376682832142
     */
-    const eventId = uuid() ////This will be our 'event_id' for this event.
+	const eventId = uuid(); ////This will be our 'event_id' for this event.
 
-    const current_timestamp = Math.floor(new Date() / 1000);
-    const userAgent = request.headers.get('User-Agent')
+	const current_timestamp = Math.floor(new Date() / 1000);
+	const userAgent = request.headers.get('User-Agent');
 
-    /* 
+	/* 
        Facebook says that sending additional customer information parameters may help increase Event Match Quality (only accept hashed data for some properties).
        We can get some additional parameters for free (CloudFlare specific).
        For more information see: https://developers.facebook.com/docs/marketing-api/conversions-api/best-practices/#req-rec-params
     */
-    const userData = getEdgeUserData(request)
-    const country = userData.country ? await sha256(userData.country) : null
-    const ct = userData.city ? await sha256(userData.city) : null
-    const st = userData.region ? await sha256(userData.region) : null
-    const zp = userData.postalCode ? await sha256(userData.postalCode) : null
+	const userData = getEdgeUserData(request);
+	const country = userData.country ? await sha256(userData.country) : null;
+	const ct = userData.city ? await sha256(userData.city) : null;
+	const st = userData.region ? await sha256(userData.region) : null;
+	const zp = userData.postalCode ? await sha256(userData.postalCode) : null;
 
+	const payload = [
+		{
+			event_name: 'ViewContent',
+			event_time: current_timestamp,
+			action_source: 'website',
+			event_id: eventId,
+			event_source_url: url.href,
+			user_data: {
+				client_ip_address: getClientAddress(),
+				client_user_agent: userAgent,
+				...(fbc && { fbc }),
+				...(fbp && { fbp }),
+				...(country && { country: [country] }),
+				...(ct && { ct: [ct] }),
+				...(st && { st: [st] }),
+				...(zp && { zp: [zp] })
+			},
+			custom_data: {
+				...(PRODUCT_NAME && { content_name: PRODUCT_NAME }),
+				...(PRODUCT_CATEGORY && { content_category: PRODUCT_CATEGORY })
+			}
+		}
+	];
+	await sendEventToCapi(payload);
+	//example res: {"events_received":1,"messages":[],"fbtrace_id":"A7G1NdOWo6whyDZUcUYuIWS"}
 
-    const payload = [
-        {
-            "event_name": "ViewContent",
-            "event_time": current_timestamp,
-            "action_source": "website",
-            event_id: eventId,
-            "event_source_url": url.href,
-            "user_data": {
-                "client_ip_address": getClientAddress(),
-                "client_user_agent": userAgent,
-                ...(fbc && { fbc }),
-                ...(fbp && { fbp }),
-                ...(country && { "country": [country] }),
-                ...(ct && { "ct": [ct] }),
-                ...(st && { "st": [st] }),
-                ...(zp && { "zp": [zp] })
-            },
-            "custom_data": {
-                ...(PRODUCT_NAME && { "content_name": PRODUCT_NAME }),
-                ...(PRODUCT_CATEGORY && { "content_category": PRODUCT_CATEGORY })
-            }
-        }
-    ]
-    await sendEventToCapi(payload)
-    //example res: {"events_received":1,"messages":[],"fbtrace_id":"A7G1NdOWo6whyDZUcUYuIWS"}
-
-    return {
-        eid: eventId
-    }
+	return {
+		eid: eventId
+	};
 }
 
 /* 

@@ -7,7 +7,9 @@
 
 <section class="container mx-auto pb-10">
 	<div class="flex flex-col md:flex-row justify-end items-center md:items-start py-4 sm:py-10">
-		<div class="relative w-[80vw] h-[80vw] sm:w-[60vw] sm:h-[60vw]">
+		<div
+			class="relative w-[80vw] h-[80vw] sm:w-[60vw] sm:h-[60vw] md:max-w-[46.25rem] md:max-h-[46.25rem]"
+		>
 			<div class="absolute top-0 md:right-0 right-1/2 translate-x-1/2 md:translate-x-0">
 				<Slideshow />
 			</div>

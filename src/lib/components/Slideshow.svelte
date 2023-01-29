@@ -1,13 +1,13 @@
 <script>
-	import Hero1Fallback from '$lib/assets/hero-frame1.png?width=1600';
-	import Hero1Webp from '$lib/assets/hero-frame1.png?width=800;400;200&format=webp&srcset';
-	import Hero1Avif from '$lib/assets/hero-frame1.png?width=800;400;200&format=avif&srcset';
-	import Hero1Jpg from '$lib/assets/hero-frame1.png?width=800;400;200&format=jpg&srcset';
+	import Hero1Fallback from '$lib/images/hero-frame1.png?width=1600';
+	import Hero1Webp from '$lib/images/hero-frame1.png?width=800;400;200&format=webp&srcset';
+	import Hero1Avif from '$lib/images/hero-frame1.png?width=800;400;200&format=avif&srcset';
+	import Hero1Jpg from '$lib/images/hero-frame1.png?width=800;400;200&format=jpg&srcset';
 
-	import Hero2Fallback from '$lib/assets/hero-frame2.png?width=1600';
-	import Hero2Webp from '$lib/assets/hero-frame2.png?width=800;400;200&format=webp&srcset';
-	import Hero2Avif from '$lib/assets/hero-frame2.png?width=800;400;200&format=avif&srcset';
-	import Hero2Jpg from '$lib/assets/hero-frame2.png?width=800;400;200&format=jpg&srcset';
+	import Hero2Fallback from '$lib/images/hero-frame2.png?width=1600';
+	import Hero2Webp from '$lib/images/hero-frame2.png?width=800;400;200&format=webp&srcset';
+	import Hero2Avif from '$lib/images/hero-frame2.png?width=800;400;200&format=avif&srcset';
+	import Hero2Jpg from '$lib/images/hero-frame2.png?width=800;400;200&format=jpg&srcset';
 
 	//To be updated too on CSS sections bellow
 	const widthBase = '80vw';
@@ -23,7 +23,7 @@
 			<source srcset={Hero2Avif} type="image/avif" />
 			<source srcset={Hero2Webp} type="image/webp" />
 			<source srcset={Hero2Jpg} type="image/jpg" />
-			<img {sizes} loading="eager" decoding="async" src={Hero2Fallback} alt="Smile Design Image" />
+			<img {sizes} loading="eager" decoding="async" src={Hero2Fallback} alt="Smile Design" />
 		</picture>
 	</div>
 	<div class="img-container">
@@ -31,12 +31,15 @@
 			<source srcset={Hero1Avif} type="image/avif" />
 			<source srcset={Hero1Webp} type="image/webp" />
 			<source srcset={Hero1Jpg} type="image/jpg" />
-			<img {sizes} loading="eager" decoding="async" src={Hero1Fallback} alt="Smile Design Image" />
+			<img {sizes} loading="eager" decoding="async" src={Hero1Fallback} alt="Smile Design" />
 		</picture>
 	</div>
 </div>
 
 <style>
+	/* @media (max-width: 768px){
+
+	} */
 	.slides {
 		display: flex;
 		overflow: hidden;
@@ -50,12 +53,22 @@
 	img {
 		max-width: 80vw;
 		height: 100%;
+		max-width: 46.25rem;
+		max-height: 46.25rem;
 	}
 
 	@media (min-width: 640px) {
 		.slides {
 			width: 60vw;
 			height: 60vw;
+			max-width: 46.25rem;
+			max-height: 46.25rem;
+		}
+	}
+	@media (min-width: 768px) {
+		.slides {
+			width: 43.5rem;
+			height: 43.5rem;
 		}
 	}
 

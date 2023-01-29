@@ -7,7 +7,9 @@
 	<div class="container mx-auto py-20 space-y-10">
 		<div class="text-center space-y-0 md:space-y-4">
 			<p class="text-lg text-secondary font-bold md:leading-6 uppercase">cosmetic dentistry</p>
-			<h2 class="text-4xl font-extrabold md:leading-5 mx-auto w-[18ch] md:w-auto uppercase">
+			<h2
+				class="text-4xl font-extrabold md:leading-10 mx-auto sm:w-[70%] px-4 md:w-[80%] uppercase"
+			>
 				Choose the plan that suits you best
 			</h2>
 		</div>

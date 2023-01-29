@@ -1,15 +1,14 @@
 <script>
-	import SEO from '$lib/components/SEO.svelte';
+	import SEO from '$components/SEO.svelte';
 	import { confetti } from '@neoconfetti/svelte';
 
-	import Logo1Avif from '$lib/assets/logo.png?width=400;800;1200&format=avif&srcset';
-	import Logo1Webp from '$lib/assets/logo.png?width=400;800;1200&format=webp&srcset';
-	import Logo1Png from '$lib/assets/logo.png?width=1200&format=png';
+	import Logo1Avif from '$lib/images/logo.png?width=400;800;1200&format=avif&srcset';
+	import Logo1Webp from '$lib/images/logo.png?width=400;800;1200&format=webp&srcset';
+	import Logo1Png from '$lib/images/logo.png?width=1200&format=png';
 
 	const seoProps = {
 		title: 'Thank You | Dr. John Doe',
 		description: 'A smile is the universal welcome',
-		language: 'en-us',
 		keywords: 'smile design, veneers treatment',
 		type: 'website'
 	};
