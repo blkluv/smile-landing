@@ -16,8 +16,8 @@
 
 <SEO {...seoProps} />
 
-<div class="flex justify-center items-center flex-1">
-	<div class="max-w-sm sm:max-w-xl md:max-w-2xl">
+<div class="flex justify-center">
+	<div class="max-w-sm sm:max-w-xl md:max-w-2xl sm:mt-16 md:mt-24">
 		<div class="flex justify-center">
 			<div use:confetti />
 		</div>
@@ -25,7 +25,13 @@
 			<picture>
 				<source srcset={Logo1Avif} type="image/avif" />
 				<source srcset={Logo1Webp} type="image/webp" />
-				<img loading="lazy" decoding="async" src={Logo1Png} alt="Persona con tratamiento" />
+				<img
+					class="w-56 h-56"
+					loading="eager"
+					decoding="sync"
+					src={Logo1Png}
+					alt="Persona con tratamiento"
+				/>
 			</picture>
 		</a>
 		<p class="font-bold text-2xl text-center mt-4">¡Thank You!</p>

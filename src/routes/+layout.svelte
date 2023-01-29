@@ -13,7 +13,7 @@
 	$: $event_id, browser && !dev && $event_id !== '' && trackFacebookEvent($event_id);
 </script>
 
-<div class="flex flex-col min-h-screen">
+<div class="flex flex-col min-h-screen overflow-hidden">
 	<main class="flex-1">
 		<slot />
 	</main>

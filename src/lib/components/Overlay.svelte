@@ -18,7 +18,7 @@
 	<button
 		type="button"
 		on:click|stopPropagation
-		class="max-w-lg px-16  py-10 bg-white  rounded-md relative opacity-100"
+		class="max-w-lg px-4 sm:px-16 py-2 sm:py-10 bg-white  rounded-md relative opacity-100"
 	>
 		<div class="max-w-xs py-5">
 			<button
@@ -34,7 +34,13 @@
 					<picture>
 						<source srcset={Logo1Avif} type="image/avif" />
 						<source srcset={Logo1Webp} type="image/webp" />
-						<img loading="lazy" decoding="async" src={Logo1Png} alt="Persona con tratamiento" />
+						<img
+							class="w-24 h-24"
+							loading="lazy"
+							decoding="async"
+							src={Logo1Png}
+							alt="Persona con tratamiento"
+						/>
 					</picture>
 				</div>
 
