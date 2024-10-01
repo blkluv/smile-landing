@@ -3,8 +3,16 @@ import { imagetools } from 'vite-imagetools';
 
 /** @type {import('vite').UserConfig} */
 const config = {
-	plugins: [sveltekit(), imagetools()]
-	//plugins: [sveltekit(), imagetools({ force: true })]
+  plugins: [
+    sveltekit(),
+    imagetools({
+      force: true, // Optional: uncomment if needed
+    }),
+  ],
+  build: {
+    outDir: 'dist', // Ensure this matches Vercel/Netlify expectations
+  },
+  // Add any other configurations you may need
 };
 
 export default config;
