@@ -19,7 +19,7 @@
 			<div class="brandGradientVariant min-w-[18rem] px-12 py-8 text-center space-y-8">
 				<div class="flex flex-col items-center space-y-4">
 					<p class="font-extrabold text-base">6 Veneers</p>
-					<h2 class="text-5xl font-extrabold">28€</h2>
+					<h2 class="text-5xl font-extrabold">$33</h2>
 					<p class="text-base text-textAccent">36 months</p>
 					<p
 						class="px-12 py-1.5 font-extrabold  text-3xl text-white rounded-[6.25rem_6.25rem_6.25rem_6.25rem] bg-gray-900"
