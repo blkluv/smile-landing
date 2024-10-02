@@ -1,0 +1,11 @@
+{
+    "version": 2,
+    "name": "asmilemo",  // Replace with your project name
+    "builds": [
+      {
+        "src": "**/*.{js,jsx,ts,tsx}",
+        "use": "@vercel/static"  // Important: Use "@vercel/static" for SvelteKit 
+      }
+    ]
+  }
+  
